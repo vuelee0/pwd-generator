@@ -24,6 +24,7 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
 
   var passwordLength = prompt("Please type a number between 8 and 128. This is your new password length.");
+  var pwdLengthInt = Math.ceil(parseInt(passwordLength) / 5);
   var lowerCase = confirm("Do you want your new password to include lowercase letters?");
   var upperCase = confirm("Do you want your new password to include uppercase letters?");
   var numericChar = confirm("Do you want your new password to include numbers?");
@@ -50,34 +51,34 @@ function generatePassword() {
   };
 
   let newRandomPassword = "";
+  for (let i = 0; i < pwdLengthInt; i++) {
+    // var newRandomNum = Math.ceil(pwdLengthInt / 5);
+    // var newRandomNum = Math.floor(Math.random() * 4);
+    // newRandomPassword += newRandomNum;
+  
+    if (pwdLengthInt >= 8 || pwdLengthInt <= 128) {
+      newRandomPassword += pwdLengthInt;
+    }
 
-  if (parseInt(passwordLength) > 8 || parseInt(passwordLength) < 128) {
-    newRandomPassword += passwordLength;
+    if (lowerCase === true) {
+      newRandomPassword += getPwdCharArray.getLowerCase();
+    }
+
+    if (upperCase === true) {
+      newRandomPassword += getPwdCharArray.getUpperCase();
+    }
+
+    if (numericChar === true) {
+      newRandomPassword += getPwdCharArray.getNumericChar();
+    }
+
+    if (specialChar === true) {
+      newRandomPassword += getPwdCharArray.getSpecialChar()
+    }
   }
 
-  if (lowerCase === true) {
-    newRandomPassword += getPwdCharArray.getLowerCase();
-  }
-
-  if (upperCase === true) {
-    newRandomPassword += getPwdCharArray.getUpperCase();
-  }
-
-  if (numericChar === true) {
-    newRandomPassword += getPwdCharArray.getNumericChar();
-  }
-
-  if (specialChar === true) {
-    newRandomPassword += getPwdCharArray.getSpecialChar()
-  }
   
 
-  
-  for (let i = 0; i < passwordLength; i++) {
-    var newRandomNum = Math.floor(Math.random() * passwordLength);
-
-    newRandomPassword += newRandomNum;
-  }
 
   return newRandomPassword;
 };
