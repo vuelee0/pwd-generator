@@ -7,3 +7,7 @@ Lower Case Letters
 Upper Case Letters
 Numbers
 Special Characters
+
+
+
+![Password Generator Screenshot](./Develop/Screen%20Shot.png)
