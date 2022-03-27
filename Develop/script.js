@@ -28,7 +28,6 @@ function generatePassword() {
   var upperCase = confirm("Do you want your new password to include uppercase letters?");
   var numericChar = confirm("Do you want your new password to include numbers?");
   var specialChar = confirm("Do you want your new password to include special characters?");
-  var minimumCharacter = 8;
 
   // function code for randomizing character stored in an array
   var getPwdCharArray = {
@@ -43,44 +42,42 @@ function generatePassword() {
     getNumericChar: function() {
       return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
     },
-  
+
     getSpecialChar: function() {
-      var specialCharacters = ("!#$%&'()*+,-./:;<=>?@[\]^_`{|}~");
-      return specialCharacters[Math.floor(Math.random() * specialCharacters.passwordLength)];
+      const specialCharacters = ("!#$%&'()*+,-./:;<=>?@[\]^_`{|}~");
+      return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
     }
   };
 
-
   let newRandomPassword = "";
 
-  if (parseInt(passwordLength) > 8 || parseInt(passwordLength) > 128) {
+  if (parseInt(passwordLength) > 8 || parseInt(passwordLength) < 128) {
     newRandomPassword += passwordLength;
   }
 
   if (lowerCase === true) {
-    newRandomPassword = getPwdCharArray.getLowerCase();
+    newRandomPassword += getPwdCharArray.getLowerCase();
   }
 
   if (upperCase === true) {
-    newRandomPassword = getPwdCharArray.getUpperCase();
+    newRandomPassword += getPwdCharArray.getUpperCase();
   }
 
   if (numericChar === true) {
-    newRandomPassword = getPwdCharArray.getNumericChar();
+    newRandomPassword += getPwdCharArray.getNumericChar();
   }
 
   if (specialChar === true) {
-    newRandomPassword = getPwdCharArray.getSpecialChar();
+    newRandomPassword += getPwdCharArray.getSpecialChar()
   }
   
 
   
-  for (let i = 0; i < (parseInt(passwordLength) - minimumCharacter); i++) {
-    var newRandomNum = Math.floor(Math.random() * 4);
+  for (let i = 0; i < passwordLength; i++) {
+    var newRandomNum = Math.floor(Math.random() * passwordLength);
 
     newRandomPassword += newRandomNum;
   }
 
   return newRandomPassword;
-
 };
