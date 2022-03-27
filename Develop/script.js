@@ -18,9 +18,6 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-
-
-
 function generatePassword() {
 
   var passwordLength = prompt("Please type a number between 8 and 128. This is your new password length.");
@@ -52,9 +49,6 @@ function generatePassword() {
 
   let newRandomPassword = "";
   for (let i = 0; i < pwdLengthInt; i++) {
-    // var newRandomNum = Math.ceil(pwdLengthInt / 5);
-    // var newRandomNum = Math.floor(Math.random() * 4);
-    // newRandomPassword += newRandomNum;
   
     if (pwdLengthInt >= 8 || pwdLengthInt <= 128) {
       newRandomPassword += pwdLengthInt;
@@ -76,9 +70,6 @@ function generatePassword() {
       newRandomPassword += getPwdCharArray.getSpecialChar()
     }
   }
-
-  
-
 
   return newRandomPassword;
 };
