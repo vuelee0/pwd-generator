@@ -12,3 +12,6 @@ Special Characters
 ```
 # Screenshots
 ![image](./assets/images/PwdGenImg.png)
+
+# Live Website
+https://vuelee0.github.io/password-generator/
